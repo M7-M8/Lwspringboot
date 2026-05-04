@@ -107,7 +107,7 @@ public final class MultiModelAIClient {
     MODEL_CONFIGS.put("deepseek", new ModelConfig(
                 "deepseek",
                 "https://api.deepseek.com/v1/chat/completions",
-                "sk-4b0311f3b22e4c09917be3541c74dca8",
+                "sk-58f114bb5904473da5c8b6cb054e6649",
                 null
         ));
     }
