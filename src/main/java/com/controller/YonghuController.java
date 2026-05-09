@@ -77,7 +77,15 @@ public class YonghuController {
 			return R.error("账号或密码不正确");
 		}
         // 如果用户是待审核状态，返回请联系管理员审核提示
-        if(!"是".equals(u.getSfsh())) return R.error("账号已锁定，请联系管理员审核。");
+        if(!"是".equals(u.getSfsh())) {
+            String message = "账号待审核";
+            if(StringUtils.isNotBlank(u.getShhf())) {
+                message += "，审核意见：" + u.getShhf();
+            } else {
+                message += "，请联系管理员审核。";
+            }
+            return R.error(message);
+        }
         // 获取登录token
         String token = tokenService.generateToken(u.getId(), username,"yonghu",  "用户" );
         //返回token
